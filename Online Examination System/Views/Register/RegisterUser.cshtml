@@ -1,0 +1,98 @@
+﻿@model Online_Examination_System.User
+
+@{
+    ViewBag.Title = "RegisterUser";
+}
+<h2>RegisterUser</h2>
+@using (Html.BeginForm("RegisterUser", "Register", FormMethod.Post))
+{
+    if (ViewBag.Title != null)
+    {
+        <div style="border:1px solid red">
+
+        </div><br />
+    }
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.UserName, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.UserName)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Organization, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Organization)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Organization, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.EmailId, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.EmailId)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.EmailId, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Password, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.ConfirmPassword, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.ConfirmPassword)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>
+               
+            </td>
+            <td><input type="submit" value="Register" class="btn-info" /></td>
+        </tr>
+        <tr>
+            @if (ViewData["Result"] == "Success")
+            {
+                <td><h2 style="background-color:lightgreen;text-align:center">Success</h2></td>
+                <br />
+            <tr><td>@Html.ActionLink("Go back to Login Page !", "Login", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</td></tr>
+
+            }
+            @if (ViewData["Result"] == "Failed")
+            {
+                <td><h2 style="background-color:orange;text-align:center">Failed</h2></td>
+                <br />
+                <tr><td>@Html.ActionLink("Go back to Login Page !", "Login", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</td></tr>
+
+            }
+            </tr>
+        </table>
+
+}

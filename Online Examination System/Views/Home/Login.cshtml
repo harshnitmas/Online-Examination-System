@@ -1,0 +1,56 @@
+﻿@model Online_Examination_System.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    if (ViewBag.Title != null)
+    { 
+    <div style="border:1px solid red">
+
+    </div><br />
+    }
+    @Html.AntiForgeryToken()
+   
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.UserName, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.EditorFor(a => a.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "UserName" } })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+ 
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Password, new { Class = "cssLabels" })
+            </td>
+            <td>
+                @Html.EditorFor(a => a.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr></tr>
+        <tr><td></td>
+            <td>
+                <input type="submit" value="Login" class="btn-info" />
+            </td>
+        </tr>
+        <tr></tr>
+        <tr><td></td><td>@Html.ActionLink("New User Register Here", "RegisterUser", "Register", routeValues: null, htmlAttributes: new { id = "registerLink" })</td></tr>
+    </table>
+    @Html.ValidationSummary(true)
+  
+}
+
+
+
