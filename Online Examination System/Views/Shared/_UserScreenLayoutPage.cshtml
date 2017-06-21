@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+
+<html>
+@if (Session["UserName"] != "" || Session["UserName"] != null)
+{
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=100">
+        <title class="navbar-brand">Welcome User</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top headerMenu">
+
+            
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <div class="navbar-left cssNavHeader">
+                    Pariksha.com
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li>@Html.ActionLink("Manage", "UpdateDetails", "User", new { area = "" }, new { @class = "cssUpdateDetails" })</li>*@
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="admin-menu">manage<span class="caret"></span></a>
+                        <ul class="dropdown-menu navbar-inverse" aria-labelledby="admin-menu">
+                            <li><a href="">Sites</a></li>
+                            <li><a href="">Site - Data Import</a></li>                          
+                            <li><a href="">Document Substitution Rules</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "cssLogout" })</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="main" class="container body-content">
+            @RenderBody()
+        </div>
+    </body>
+}
+</html>
+<style>
+    body {
+        background-color: #c6d2da !important;
+    }
+
+    .headerMenu {
+        background-color: #0094ff;
+        width: 100%;
+        color: black;
+        box-shadow: inset;
+        height: 62px !important;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    .cssNavHeader {
+        font-size: 45px;
+        font-family:'Times New Roman', Times, serif;
+        color: #42282f;
+        margin-left:20px;
+    }
+        .cssNavHeader:hover {
+       
+        /*margin-top:20px;*/
+        transform:skew(10deg);
+        }
+
+
+    .cssLogout {
+        display: inline-block;
+        border-radius: 8px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 14px;
+        width: 100px;
+        transition: all 0.3s;
+        cursor: pointer;
+        margin: 5px;
+        margin-right: 20px;
+    }
+
+    .cssUpdateDetails {
+        display: inline-block;
+        border-radius: 8px;
+        background-color: #008CBA;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 14px;
+        width: 100px;
+        transition: all 0.3s;
+        cursor: pointer;
+        margin: 5px;
+        margin-right: 20px;
+    }
+        .cssUpdateDetails:hover {
+        background-color:#008CBA !important;
+        color: black;
+            font-size: 16px;
+            transform:scale(1.1);
+        }
+        .cssLogout:hover {
+            background-color: #f4511e !important;
+            color: black;
+            font-size: 16px;
+            transform:scale(1.1);
+        }
+</style>

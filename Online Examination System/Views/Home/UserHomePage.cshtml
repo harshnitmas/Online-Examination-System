@@ -1,10 +1,11 @@
-﻿
-@{
-    ViewBag.Title = "UserHomePage";
-}
-@if (Session["UserId"] != null)
+﻿@model Online_Examination_System.User
+         @Html.AntiForgeryToken()
+@if (Session["UserName"] != null && Session["UserName"]!="")
 {
-    <h3>UserHomePage</h3>
+    {
+     ViewBag.Title = "UserHomePage";
+    Layout = "~/Views/Shared/_UserScreenLayoutPage.cshtml";
+    }
+
+    <h2>UserHomePage @Session["UserName"]</h2>
 }
-
-

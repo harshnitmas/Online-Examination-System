@@ -277,8 +277,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\AdminHomePage.cshtml" />
-    <Content Include="Views\Home\UserHomePage.cshtml" />
     <Content Include="Views\Register\RegisterUser.cshtml" />
+    <Content Include="Views\Shared\_UserScreenLayoutPage.cshtml" />
+    <Content Include="Views\Home\UserHomePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -292,6 +293,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

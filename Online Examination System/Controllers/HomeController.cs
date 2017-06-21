@@ -78,6 +78,13 @@ namespace Online_Examination_System.Controllers
             else
                 return RedirectToAction("Login");
         }
+        public ActionResult Logout()
+        {
+            Session["UserId"] = "";
+            Session["UserName"] = "";         
+            return RedirectToAction("Login");
+        
+        }
 
     }
 }
