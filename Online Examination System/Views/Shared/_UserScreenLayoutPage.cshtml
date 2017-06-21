@@ -15,21 +15,22 @@
     <body>
         <div class="navbar navbar-fixed-top headerMenu">
 
-            
+
             <div class="navbar-collapse collapse" id="navbar-main">
                 <div class="navbar-left cssNavHeader">
                     Pariksha.com
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    @*<li>@Html.ActionLink("Manage", "UpdateDetails", "User", new { area = "" }, new { @class = "cssUpdateDetails" })</li>*@
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="admin-menu">manage<span class="caret"></span></a>
-                        <ul class="dropdown-menu navbar-inverse" aria-labelledby="admin-menu">
-                            <li><a href="">Sites</a></li>
-                            <li><a href="">Site - Data Import</a></li>                          
-                            <li><a href="">Document Substitution Rules</a></li>
-                        </ul>
-                    </li>
+                    <li class="cssUserName">Welcome @Session["UserName"]</li>
+                    <li>@Html.ActionLink("Manage", "UpdateUserDetails", "User", new { area = "" }, new { @class = "cssUpdateDetails" })</li>
+                    @*<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="admin-menu">manage<span class="caret"></span></a>
+                            <ul class="dropdown-menu navbar-inverse">
+                                <li><a href="">Sites</a></li>
+                                <li><a href="">Site - Data Import</a></li>
+                                <li><a href="">Document Substitution Rules</a></li>
+                            </ul>
+                        </li>*@
                     <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "cssLogout" })</li>
                 </ul>
             </div>
@@ -58,16 +59,10 @@
 
     .cssNavHeader {
         font-size: 45px;
-        font-family:'Times New Roman', Times, serif;
+        font-family: 'Times New Roman', Times, serif;
         color: #42282f;
-        margin-left:20px;
+        margin-left: 20px;
     }
-        .cssNavHeader:hover {
-       
-        /*margin-top:20px;*/
-        transform:skew(10deg);
-        }
-
 
     .cssLogout {
         display: inline-block;
@@ -84,10 +79,17 @@
         margin-right: 20px;
     }
 
+        .cssLogout:hover {
+            background-color: #f4511e !important;
+            color: black;
+            font-size: 16px;
+            transform: scale(1.1);
+        }
+
     .cssUpdateDetails {
         display: inline-block;
         border-radius: 8px;
-        background-color: #008CBA;
+        background-color: #4d4f80;
         border: none;
         color: #FFFFFF;
         text-align: center;
@@ -98,16 +100,19 @@
         margin: 5px;
         margin-right: 20px;
     }
+
         .cssUpdateDetails:hover {
-        background-color:#008CBA !important;
-        color: black;
-            font-size: 16px;
-            transform:scale(1.1);
-        }
-        .cssLogout:hover {
-            background-color: #f4511e !important;
+            background-color: #4d4f80 !important;
             color: black;
             font-size: 16px;
-            transform:scale(1.1);
+            transform: scale(1.1);
         }
+
+    .cssUserName {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 14px;
+        color: black;
+        font-weight: bold;
+    }
 </style>

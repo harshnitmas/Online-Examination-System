@@ -1,0 +1,24 @@
+﻿@model Online_Examination_System.User
+
+@{
+    ViewBag.Title = "Update User Details";
+    Layout = "~/Views/Shared/_UserScreenLayoutPage.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h2>@Session["UserName"] Update Details</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserId)     
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "UserHomePage")
+</div>
