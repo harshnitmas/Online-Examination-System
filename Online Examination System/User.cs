@@ -19,7 +19,7 @@ namespace Online_Examination_System
         [Required(ErrorMessage = "Please Enter Username", AllowEmptyStrings = false)]
         public string UserName { get; set; }
         [Required(ErrorMessage = "Please Enter Username", AllowEmptyStrings = false)]
-        [DataType(DataType.Password)]
+      
         public string Password { get; set; }
         [DataType(DataType.EmailAddress)]
         public string EmailId { get; set; }
@@ -27,8 +27,7 @@ namespace Online_Examination_System
         [DataType(DataType.PhoneNumber)]
         public string PhoneNo { get; set; }
         public string Organization { get; set; }
-        [DataType(DataType.Password)]
+ 
         public string ConfirmPassword { get; set; }
-
     }
 }

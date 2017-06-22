@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Utilities;
 
 namespace Online_Examination_System.Controllers
 {
@@ -24,6 +25,7 @@ namespace Online_Examination_System.Controllers
                 using (OnlineExaminationDBEntities db = new OnlineExaminationDBEntities())
                 {
                     u.UserType="User";
+                    u.Password = PasswordHash.Hash(u.Password);
                     db.Users.Add(u);
                     var res=db.SaveChanges();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Utilities;
 namespace Online_Examination_System.Controllers
 {
     public class HomeController : Controller
@@ -38,7 +38,9 @@ namespace Online_Examination_System.Controllers
             {
                 using (OnlineExaminationDBEntities db = new OnlineExaminationDBEntities())
                 {
-                    var checkUser = db.Users.Where(a => a.UserName.Equals(u.UserName) && a.Password.Equals(u.Password)).FirstOrDefault();
+                    
+                    var EPass = PasswordHash.Hash(u.Password);
+                    var checkUser = db.Users.Where(a => a.UserName.Equals(u.UserName) && a.Password.Equals(EPass)).FirstOrDefault();
                     if (checkUser != null)
                     {
                         Session["UserId"] = checkUser.UserId;
